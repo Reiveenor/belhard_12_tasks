@@ -1,6 +1,11 @@
 [flake8]
 ignore =
   D101,
+  F401,
+  I005,
+  I001,
+  A003,
+  E722,
   E501,
   W503
 exclude =

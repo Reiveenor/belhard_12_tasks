@@ -68,7 +68,7 @@
 * duration [```NOT NULL```, ```INT```] - длительность фильма в секундах
 * name [```NOT NULL```, ```VARCHAR```] - название фильма
 * release_date [```NOT NULL```, ```DATETIME```] - дата выхода
-* rating [```NOT NULL```, ```FLOAT```] - рейтинг фильма
+* raiting [```NOT NULL```, ```FLOAT```] - рейтинг фильма
 * director_id [```NOT NULL```, ```INT```, ```REFERENCES persons(id)```] - режиссер фильма
 
 **user_favorite_films** - MM связь "любимые фильмы пользователя"
