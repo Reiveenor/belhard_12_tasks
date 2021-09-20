@@ -11,7 +11,7 @@ class Film(Base):
     duration = Column(Integer, nullable=False)
     name = Column(String(100), nullable=False)
     release_date = Column(DateTime, nullable=False)
-    raiting = Column(Float(3, 2), nullable=False)
+    rating = Column(Float(3, 2), nullable=False)
     director_id = Column(Integer, ForeignKey("persons.id"), nullable=False)
 
     director = relationship("Person")

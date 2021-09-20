@@ -40,7 +40,7 @@ with session_scope() as session:
     # film = tables.Film()
     # film.duration = 123
     # film.name = "Best Film"
-    # film.raiting = 9.8
+    # film.rating = 9.8
     # film.director_id = person.id
     # film.release_date = datetime.datetime.now()
     # session.add(film)
