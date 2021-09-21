@@ -1,6 +1,6 @@
 import datetime
 
-from sqlalchemy import asc
+from sqlalchemy import asc, desc
 
 from db import session_scope, tables
 
@@ -16,12 +16,20 @@ with session_scope() as session:
         session.refresh(person)
         return session.query(tables.Person.name).all()
 
-    # sort by name asc
-    def asc_sort():
-        result = session.query(tables.Person.name) \
-            .order_by(asc(tables.Person.name)) \
-            .all()
-        return result
+    # sort by name asc and desc
+    def some_sort(sort_type):
+        if sort_type == asc:
+            result = session.query(tables.Person.name) \
+                .order_by(asc(tables.Person.name)) \
+                .all()
+            return result
+        elif sort_type == desc:
+            result = session.query(tables.Person.name) \
+                .order_by(desc(tables.Person.name)) \
+                .all()
+            return result
+        else:
+            return "Wrong sort type"
 
     # delete row by name
     def del_row(name):
@@ -50,10 +58,11 @@ with session_scope() as session:
     # session.commit()
 
 if __name__ == '__main__':
-    # print(add_person("Ignat", "Oksimchik"))
-    # print(add_person("Vasyan", "Strelnikov"))
-    # print(add_person("Ignatarius", "Petrov"))
-    # print(add_person("Olga", "Nabokova"))
-    print(asc_sort())
-    # print(del_row("sdfgsdf"))
-    # print(del_row("Vasyan"))
+    print(add_person("Ignat", "Oksimchik"))
+    print(add_person("Vasyan", "Strelnikov"))
+    print(add_person("Ignatarius", "Petrov"))
+    print(add_person("Olga", "Nabokova"))
+    print(some_sort(desc))
+    print(some_sort(asc))
+    print(del_row("sdfgsdf"))
+    print(del_row("Vasyan"))
